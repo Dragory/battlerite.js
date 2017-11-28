@@ -1,4 +1,4 @@
-# Battlerite.js ![NPM](https://img.shields.io/npm/v/battlerite.js.svg)
+# Battlerite.js <a href="https://www.npmjs.com/package/battlerite.js"><img src="https://img.shields.io/npm/v/battlerite.js.svg" alt="Battlerite.js on NPM"></a>
 
 A library for using the [Battlerite API](http://battlerite-docs.readthedocs.io/en/master/introduction.html) from NodeJS.
 
