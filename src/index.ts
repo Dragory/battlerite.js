@@ -1,3 +1,3 @@
 export {Client} from "./client";
 
-export {Player} from "./structures/Player";
+export {Player} from "./entities/Player";

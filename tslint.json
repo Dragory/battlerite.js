@@ -11,6 +11,10 @@
     "prefer-conditional-expression": false,
     "prefer-object-spread": false,
     "forin": false,
-    "member-access": false
+    "member-access": false,
+    "member-ordering": false,
+    "variable-name": false,
+    "ordered-imports": false,
+    "curly": [true, "ignore-same-line"]
   }
 }

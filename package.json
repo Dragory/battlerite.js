@@ -1,13 +1,15 @@
 {
   "name": "battlerite.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for using the Battlerite API",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "lint-staged",
     "build": "touch dist && rm -r dist && tsc",
-    "prepublishOnly": "npm run build"
+    "watch": "touch dist && rm -r dist && tsc --watch",
+    "prepublishOnly": "npm run build",
+    "format": "prettier --write \"./**/*.ts\""
   },
   "lint-staged": {
     "*.ts": [
@@ -21,6 +23,7 @@
     "@types/node": "^8.0.53",
     "@types/request-promise-native": "^1.0.10",
     "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
     "prettier": "^1.8.2",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
