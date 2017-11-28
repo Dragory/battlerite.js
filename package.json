@@ -1,6 +1,6 @@
 {
   "name": "battlerite.js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A library for using the Battlerite API",
   "main": "dist/index.js",
   "scripts": {
