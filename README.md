@@ -1,5 +1,10 @@
-# Battlerite.js
+# Battlerite.js ![NPM](https://img.shields.io/npm/v/battlerite.js.svg)
+
 A library for using the [Battlerite API](http://battlerite-docs.readthedocs.io/en/master/introduction.html) from NodeJS.
+
+```
+npm install --save battlerite.js
+```
 
 ## Basic usage
 
