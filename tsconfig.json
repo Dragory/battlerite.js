@@ -18,7 +18,7 @@
       "types"
     ],
     "outDir": "dist",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "experimentalDecorators": true
   },
