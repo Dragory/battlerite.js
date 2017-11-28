@@ -1,4 +1,4 @@
-import { apiRequest, apiRequestPaged, rawRequest } from "./request";
+import { APIError, apiRequest, apiRequestPaged, rawRequest } from "./request";
 import { ensureArray, queryArray } from "./utils";
 import { mapDataToEntity } from "./entityMapper";
 
@@ -13,30 +13,58 @@ export class Client {
   }
 
   async getPlayer(id: string) {
-    const response = await apiRequest(this.token, "GET", `players/${id}`);
+    let response;
+    try {
+      response = await apiRequest(this.token, "GET", `players/${id}`);
+    } catch (e) {
+      if (e instanceof APIError && e.statusCode === 404) return null;
+      else throw e;
+    }
+
     return mapDataToEntity(response.data[0], response.included, Player);
   }
 
   async getPlayersById(ids: string | string[]) {
     const idsArr: string[] = ensureArray(ids);
-    const response = await apiRequest(this.token, "GET", "players", {
-      "filter[playerIds]": idsArr.join(",")
-    });
+
+    let response;
+    try {
+      response = await apiRequest(this.token, "GET", "players", {
+        "filter[playerIds]": idsArr.join(",")
+      });
+    } catch (e) {
+      if (e instanceof APIError && e.statusCode === 404) return [];
+      else throw e;
+    }
 
     return mapDataToEntity(response.data, response.included, Player);
   }
 
   async getPlayersByName(names: string | string[]) {
     const namesArr: string[] = ensureArray(names);
-    const response = await apiRequest(this.token, "GET", "players", {
-      "filter[playerNames]": namesArr.join(",")
-    });
+
+    let response;
+    try {
+      response = await apiRequest(this.token, "GET", "players", {
+        "filter[playerNames]": namesArr.join(",")
+      });
+    } catch (e) {
+      if (e instanceof APIError && e.statusCode === 404) return [];
+      else throw e;
+    }
 
     return mapDataToEntity(response.data, response.included, Player);
   }
 
   async getMatch(id: string) {
-    const response = await apiRequest(this.token, "GET", `matches/${id}`);
+    let response;
+    try {
+      response = await apiRequest(this.token, "GET", `matches/${id}`);
+    } catch (e) {
+      if (e instanceof APIError && e.statusCode === 404) return null;
+      else throw e;
+    }
+
     return mapDataToEntity(response.data[0], response.included, Match);
   }
 
@@ -75,13 +103,19 @@ export class Client {
           : (filters.fromDate as Date).toISOString();
     }
 
-    const response = await apiRequestPaged(
-      this.token,
-      "GET",
-      "matches",
-      params,
-      amount
-    );
+    let response;
+    try {
+      response = await apiRequestPaged(
+        this.token,
+        "GET",
+        "matches",
+        params,
+        amount
+      );
+    } catch (e) {
+      if (e instanceof APIError && e.statusCode === 404) return [];
+      else throw e;
+    }
 
     return mapDataToEntity(response.data, response.included, Match);
   }

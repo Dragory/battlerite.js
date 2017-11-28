@@ -8,7 +8,14 @@ export interface IAPIRequestParams {
 
 export type APIMethod = "POST" | "GET";
 
-export class APIError extends Error {}
+export class APIError extends Error {
+  statusCode: number | null;
+
+  constructor(message, statusCode = null) {
+    super(message);
+    this.statusCode = statusCode;
+  }
+}
 
 export interface IData {
   id: string;
@@ -81,7 +88,7 @@ export async function apiRequest(
     response = await rawRequest(method, url, opts);
   } catch (e) {
     if (e.statusCode && e.statusCode === 404) {
-      throw new APIError(`404 Not Found: ${url}`);
+      throw new APIError(`404 Not Found: ${url}`, 404);
     } else if (e.statusCode && e.statusCode === 429) {
       // If we were rate limited (despite efforts to avoid it later below),
       // warn the user and wait until the rate limit has been reset
