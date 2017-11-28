@@ -95,7 +95,16 @@ export async function apiRequest(
     } else if (e.error && e.error[0] === "{") {
       // Specific API error, pass to user
       const parsed = JSON.parse(e.error);
-      const errors = parsed.errors.map(e => e.title).join(", ");
+      const errors = parsed.errors
+        .map(e => {
+          if (e.description) {
+            return `${e.title}: ${e.description}`;
+          } else {
+            return e.title;
+          }
+        })
+        .join(", ");
+
       throw new APIError(errors);
     } else {
       // Re-throw other errors
