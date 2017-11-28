@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+
+  "rules": {
+    "no-var-requires": false,
+    "object-literal-sort-keys": false,
+    "max-classes-per-file": [false],
+    "prefer-conditional-expression": false,
+    "prefer-object-spread": false,
+    "forin": false,
+    "member-access": false
+  }
+}

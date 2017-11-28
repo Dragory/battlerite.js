@@ -1,0 +1,35 @@
+{
+  "name": "battlerite.js",
+  "version": "1.0.0",
+  "description": "A library for using the Battlerite API",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "@types/request-promise-native": "^1.0.10",
+    "husky": "^0.14.3",
+    "prettier": "^1.8.2",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.6.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "files": [
+    "dist"
+  ]
+}
