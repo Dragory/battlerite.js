@@ -2,11 +2,11 @@ import request from "request-promise-native";
 
 const root = "https://api.dc01.gamelockerapp.com/shards/global";
 
-interface IAPIRequestParams {
-    [key: any]: any
+export interface IAPIRequestParams {
+    [key: string]: any
 }
 
-type APIMethod = "POST" | "GET";
+export type APIMethod = "POST" | "GET";
 
 export function apiRequest(token: string, method: APIMethod, endpoint: string, params: IAPIRequestParams) {
     const fullUrl = `${root}/${endpoint}`;

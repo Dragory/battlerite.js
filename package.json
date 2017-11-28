@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "touch dist && rm -r dist && tsc",
+    "prepublishOnly": "npm run build"
   },
   "lint-staged": {
     "*.ts": [
