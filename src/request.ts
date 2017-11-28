@@ -80,7 +80,9 @@ export async function apiRequest(
   try {
     response = await rawRequest(method, url, opts);
   } catch (e) {
-    if (e.statusCode && e.statusCode === 429) {
+    if (e.statusCode && e.statusCode === 404) {
+      throw new APIError(`404 Not Found: ${url}`);
+    } else if (e.statusCode && e.statusCode === 429) {
       // If we were rate limited (despite efforts to avoid it later below),
       // warn the user and wait until the rate limit has been reset
 
