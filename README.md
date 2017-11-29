@@ -61,3 +61,7 @@ Note that bulk scraping matches is prohibited by the Battlerite API terms of use
 ### `client.getMatchTelemetry(match: Match) => Promise<object>`
 
 Loads telemetry data for the given Match.
+
+## Types
+
+A list of types/entities can be found in [the documentation](https://dragory.github.io/battlerite.js/classes/_entities_entity_.entity.html)
