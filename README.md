@@ -61,7 +61,3 @@ Note that bulk scraping matches is prohibited by the Battlerite API terms of use
 ### `client.getMatchTelemetry(match: Match) => Promise<object>`
 
 Loads telemetry data for the given Match.
-
-## Structures
-
-See http://battlerite-docs.readthedocs.io/en/master/match_data_summary/match_data_summary.html for an overview of what properties `Match` and its related data can contain.
