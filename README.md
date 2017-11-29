@@ -1,6 +1,6 @@
 # Battlerite.js <a href="https://www.npmjs.com/package/battlerite.js"><img src="https://img.shields.io/npm/v/battlerite.js.svg" alt="Battlerite.js on NPM"></a>
 
-A library for using the [Battlerite API](http://battlerite-docs.readthedocs.io/en/master/introduction.html) from NodeJS.
+A NodeJS wrapper/library for the official [Battlerite API](http://battlerite-docs.readthedocs.io/en/master/introduction.html)
 
 ```
 npm install --save battlerite.js
