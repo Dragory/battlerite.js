@@ -2,7 +2,7 @@ import { Entity } from "./Entity";
 import { Roster } from "./Roster";
 import { Round } from "./Round";
 import { Asset } from "./Asset";
-import { getMapById, IMap } from "../maps";
+import { getMapById, IMap } from "../data/maps";
 
 export class Match extends Entity {
   public createdAt: Date;
@@ -30,7 +30,7 @@ export class Match extends Entity {
       });
     } else if (key === "stats") {
       // Match stats contain the map ID. Use this to find and set the match's map.
-      super("map", getMapById(value.mapID));
+      super._set("map", getMapById(value.mapID));
     }
 
     super._set(key, value);
