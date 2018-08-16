@@ -1,6 +1,6 @@
 import * as request from "request-promise-native";
 
-const root = "https://api.dc01.gamelockerapp.com/shards/global";
+const root = "https://api.developer.battlerite.com/shards/global";
 
 export interface IAPIRequestParams {
   [key: string]: any;
